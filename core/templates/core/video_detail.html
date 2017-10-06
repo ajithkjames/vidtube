@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if object %}
+<div class="space" >
+	<div class="row">
+		<div class="card col m8 s8 l8" style="padding-left: 4%;">
+			<div class="card-image waves-effect waves-block waves-light">
+			  <video class="responsive-video" controls style="max-height: 450px">
+					    <source src="{{object.file.url}}" type="video/mp4">
+					  </video>
+			</div>
+			<div class="card-content">
+			  <span class="card-title activator grey-text text-darken-4">{{object.title}}<i class="material-icons right">more_vert</i></span>
+			  <p><a href="#">{{object.uploader}}</a></p>
+			</div>
+			<div class="card-reveal">
+			  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+			  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+			</div>
+		</div>
+
+		<div class="col s4 m4 l4" ng-controller="homeController" >
+		<div class="row" infinite-scroll='video.nextPage()' infinite-scroll-disabled='video.busy' infinite-scroll-distance='10' >
+	     <!-- <video class="responsive-video" controls width="250">
+		    <source src="{{video.file.url}}" type="video/mp4">
+		  </video> -->
+		        <div class="col s8" ng-repeat='item in video.items' track by $index>
+		          <div class="card">
+		            <div class="card-image">
+		              <img src="[[item.thumbnail]]" style="max-height: 115px;">
+
+		              <span class="card-title">[[item.title]]</span>
+		            </div>
+		            <div class="card-action" style="text-align: center;">
+		              <a class="btn red" href="/video/[[item.id]]">Watch</a>
+		            </div>
+		          </div>
+		        </div>
+		  </div>
+		</div>
+
+	</div>
+</div>
+
+{% else %}
+<center>
+	<div class="no_orders">
+	<h4>No Videos yet!!</h4>
+	</div>
+</center>
+{%endif%}
+{% endblock %}

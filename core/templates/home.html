@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="space" ng-controller="homeController">
+	<div class="container" infinite-scroll='video.nextPage()' infinite-scroll-disabled='video.busy' infinite-scroll-distance='10' >
+		<div class="row">
+		        <div class="col s6 m3" ng-repeat='item in video.items' track by $index>
+		        	<a href="/video/[[item.id]]">
+			          <div class="card">
+			            <div class="card-image">
+			              <img src="[[item.thumbnail]]" style="max-height: 115px;">
+
+			              <span class="card-title">[[item.title]]</span>
+			            </div>
+			            <div class="card-action" style="text-align: center;">
+			              <a class="btn red" href="/video/[[item.id]]">Watch</a>
+			            </div>
+			          </div>
+		          </a>
+		        </div>
+		  </div>
+	    </div>
+</div>
+
+{% endblock %}

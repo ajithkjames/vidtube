@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if object %}
+<div class="space">
+	<div class="container">
+	    <div class="row">
+	        <div class="jumbotron">
+	        <h1>Order Details</h1>
+	        <a href="/pdf">
+		                    		<button class="waves-effect waves-light btn">Print</button>
+	                    		</a>
+	        	<table class="bordered" >
+	        		<tr>
+	        			<th>Ordering Person   :</th>
+	        			<td>{{object.user.first_name}} &nbsp{{object.user.last_name}}</td>
+	        		</tr>
+	        		<tr>
+	        			<th>Stamp Type   :</th>
+	        			<td>{{object.stamp_type}}</td>
+	        		</tr>
+	        		<tr>
+	        			<th>Stamp size   :</th>
+	        			<td>{{object.get_size_display}}</td>
+	        		</tr>
+	        		<tr>
+	        			<th>Stamp Color   :</th>
+	        			<td>{{object.color}}</td>
+	        		</tr>
+	        		<tr>
+	        			<th>Stamp Font   :</th>
+	        			<td>{{object.font}}</td>
+	        		</tr>
+	        		<tr>
+	        			<th>Allignment  :</th>
+	        			<td>{{object.allignment}}</td>
+	        		</tr>
+	        		<tr>
+	        			<th>Rate   :</th>
+	        			<td>{{object.rate}}</td>
+	        		</tr>
+	        		<tr>
+	        			<th>Quantity   :</th>
+	        			<td>{{object.quantity}}</td>
+	        		</tr>
+	        		<tr>
+	        			<th>Special Requests   :</th>
+	        			<td>{{object.spcl_request}}</td>
+	        		</tr>
+	        		<tr>
+	        			<th>Advance   :</th>
+	        			<td>{{object.advance}}</td>
+	        		</tr>
+	        		<tr>
+	        			<th>Delivery Rate   :</th>
+	        			<td>{{object.delivery_date}}</td>
+	        		</tr>
+	        	</table>
+
+	            
+	
+	       
+	            
+	        </div>
+	    </div>
+	</div>
+</div>
+{% else %}
+	<h3>No data!!</h3>
+{%endif%}
+{% endblock %}
